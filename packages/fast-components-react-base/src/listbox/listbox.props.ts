@@ -19,6 +19,11 @@ export interface ListboxHandledProps extends ListboxManagedClasses {
     typeAheadPropertyKey?: string;
 
     /**
+     * Enable type ahead
+     */
+    typeAheadEnabled?: boolean;
+
+    /**
      * Whether this listbox supports multi-selection (default is 'false')
      */
     multiselectable?: boolean;
