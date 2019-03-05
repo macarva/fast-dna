@@ -11,14 +11,9 @@ import {
     localizeSpacing,
     toPx,
 } from "@microsoft/fast-jss-utilities";
-import {
-    accentFillRest,
-    accentForegroundCut,
-    neutralForegroundRest,
-} from "../utilities/color";
+import { accentForegroundCut, neutralForegroundRest } from "../utilities/color";
 import { DesignSystem, withDesignSystemDefaults } from "../design-system/index";
 import { applyTypeRampConfig } from "../utilities/typography";
-import { ensureNormalContrast } from "../utilities/colors";
 import { fontWeight } from "../utilities/fonts";
 
 function smallBadgeStyle(): CSSRules<DesignSystem> {
@@ -26,7 +21,7 @@ function smallBadgeStyle(): CSSRules<DesignSystem> {
         ...applyTypeRampConfig("t8"),
         padding: localizeSpacing(Direction.ltr)(`2px ${toPx(8)} 0 0`),
         height: "17px",
-        "&$badge__highlight, &$badge__lowlight, &$badge__accent": {
+        "&$badge__filled": {
             padding: "1px 8px 2px",
         },
     };
@@ -36,7 +31,7 @@ function largeBadgeStyle(direction: Direction): CSSRules<DesignSystem> {
     return {
         [applyLocalizedProperty("paddingRight", "paddingLeft", direction)]: "12px",
         height: "20px",
-        "&$badge__highlight, &$badge__lowlight, &$badge__accent": {
+        "&$badge__filled": {
             padding: "3px 12px",
         },
     };
@@ -55,9 +50,7 @@ const styles: ComponentStyles<BadgeClassNameContract, DesignSystem> = (
     const designSystem: DesignSystem = withDesignSystemDefaults(config);
     const direction: Direction = designSystem.direction;
     // Badges do not switch color on theme change
-    const backgroundColor: string = "#FFF";
-    const lowlightBackground: string = "#333";
-    const highlightBackground: string = "#FFD800";
+    const filledBackground: string = "#FFD800";
 
     return {
         badge: {
@@ -69,20 +62,9 @@ const styles: ComponentStyles<BadgeClassNameContract, DesignSystem> = (
             maxWidth: "215px",
             color: neutralForegroundRest,
         },
-        badge__highlight: {
+        badge__filled: {
             ...backplateStyle(designSystem),
-            backgroundColor: highlightBackground,
-            color: accentForegroundCut((): string => highlightBackground),
-        },
-        // TODO: No solution for this
-        badge__lowlight: {
-            ...backplateStyle(designSystem),
-            backgroundColor: lowlightBackground,
-            color: backgroundColor,
-        },
-        badge__accent: {
-            ...backplateStyle(designSystem),
-            backgroundColor: accentFillRest,
+            backgroundColor: filledBackground,
             color: accentForegroundCut,
         },
         badge__small: {
