@@ -18,11 +18,12 @@ const styles: ComponentStyles<BreadcrumbClassNameContract, DesignSystem> = (
 
     return {
         breadcrumb_item: {
-            fontWeight: `${fontWeight.bold}`,
+            fontWeight: `${fontWeight.semibold}`,
             display: "inline",
             outline: "none",
             textDecoration: "none",
             color: neutralForegroundRest,
+            transition: "all 0.2s ease-in-out",
             ...applyTypeRampConfig("t7"),
             "&:link, &:visited": {
                 color: accentFillRest,

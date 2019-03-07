@@ -2,18 +2,18 @@ import { DesignSystem } from "../design-system";
 import { ComponentStyles, CSSRules } from "@microsoft/fast-jss-manager";
 import { TypographyClassNameContract } from "@microsoft/fast-components-class-name-contracts-base";
 import { applyTypeRampConfig } from "../utilities/typography";
-import { ensureForegroundNormal } from "../utilities/colors";
-import { toPx } from "@microsoft/fast-jss-utilities";
-import { get } from "lodash-es";
+import { neutralForegroundRest } from "../utilities/color";
 
 const paragraphDefaults: CSSRules<DesignSystem> = {
-    color: ensureForegroundNormal,
+    color: neutralForegroundRest,
     marginTop: "0",
     marginBottom: "0",
 };
 
 const styles: ComponentStyles<TypographyClassNameContract, DesignSystem> = {
-    typography: {},
+    typography: {
+        transition: "all 0.2s ease-in-out",
+    },
     typography__1: {
         ...applyTypeRampConfig("t1"),
         ...paragraphDefaults,

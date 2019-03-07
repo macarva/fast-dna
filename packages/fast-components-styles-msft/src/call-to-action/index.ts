@@ -66,7 +66,6 @@ const styles: ComponentStyles<CallToActionClassNameContract, DesignSystem> = (
             lineHeight: "1",
             textDecoration: "none",
             whiteSpace: "nowrap",
-            transition: "all 0.2s ease-in-out",
             "&:hover": {
                 "& $callToAction_glyph": {
                     transform:
@@ -111,9 +110,6 @@ const styles: ComponentStyles<CallToActionClassNameContract, DesignSystem> = (
             },
         },
         callToAction__disabled: {
-            "& $callToAction_glyph": {
-                fill: neutralForegroundRest,
-            },
             "&:hover": {
                 "& $callToAction_glyph": {
                     transform: "none",

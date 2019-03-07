@@ -94,10 +94,10 @@ const styles: ComponentStyles<TextActionClassNameContract, DesignSystem> = (
                 designSystem.outlinePatternOutlineWidth
             )} solid ${neutralFocus(designSystem)}`,
             "&:hover": {
-                boxShadow: `0 0 0 1px ${designSystem.foregroundColor} inset`,
-                border: `${toPx(designSystem.outlinePatternOutlineWidth)} solid ${
-                    designSystem.foregroundColor
-                }`,
+                boxShadow: `0 0 0 1px ${neutralFocus(designSystem)} inset`,
+                border: `${toPx(
+                    designSystem.outlinePatternOutlineWidth
+                )} solid ${neutralFocus(designSystem)}`,
             },
         },
         textAction__disabled: {
@@ -120,7 +120,7 @@ const styles: ComponentStyles<TextActionClassNameContract, DesignSystem> = (
         },
         textAction_beforeGlyph: {
             ...glyphStyles,
-            [applyLocalizedProperty("marginLeft", "marginRight", direction)]: "8px",
+            [applyLocalizedProperty("marginLeft", "marginRight", direction)]: "12px",
         },
         textAction_afterGlyph: {
             ...glyphStyles,

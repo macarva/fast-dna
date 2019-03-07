@@ -18,7 +18,6 @@ import {
 } from "../utilities/color";
 import { DesignSystem, withDesignSystemDefaults } from "../design-system/index";
 import { applyTypeRampConfig } from "../utilities/typography";
-import { ensureNormalContrast } from "../utilities/colors";
 import { fontWeight } from "../utilities/fonts";
 
 function smallBadgeStyle(): CSSRules<DesignSystem> {
@@ -68,6 +67,7 @@ const styles: ComponentStyles<BadgeClassNameContract, DesignSystem> = (
             display: "inline-block",
             maxWidth: "215px",
             color: neutralForegroundRest,
+            transition: "all 0.2s ease-in-out",
         },
         badge__highlight: {
             ...backplateStyle(designSystem),
